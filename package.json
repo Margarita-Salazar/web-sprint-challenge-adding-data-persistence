@@ -8,6 +8,7 @@
     "server": "nodemon index.js",
     "rollback": "knex migrate:rollback",
     "migrate": "knex migrate:up",
+    "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand --silent"
   },
   "repository": {
