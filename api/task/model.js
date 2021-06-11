@@ -26,17 +26,23 @@ async function getAllTasks(){
     return rows
 }
 
-function getTasksById(id){
-    return db('tasks')
+async function getTasksById(id){
+    const task = await db('tasks')
     .where('task_id', id)
+    .first()
+    
+    task.task_completed === 0 ?
+        task.task_completed = false
+    :   
+        task.task_completed = true
+
+    return task
 }
 
 function createTask(task){
     return db('tasks')
         .insert(task, 'task_id')
-        .then(([id])=>{
-            getTasksById(id)
-        })
+        .then(([id])=> getTasksById(id))
 }
 
 module.exports = {
