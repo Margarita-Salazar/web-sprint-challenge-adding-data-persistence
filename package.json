@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
+    "rollback": "knex migrate:rollback",
+    "migrate": "knex migrate:up",
     "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand --silent"
   },
   "repository": {
