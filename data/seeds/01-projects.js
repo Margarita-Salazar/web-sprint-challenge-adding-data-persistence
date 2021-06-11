@@ -5,6 +5,7 @@ exports.seed = function(knex) {
       { 
         project_name: 'Project Mayhem', 
         project_description: 'Do not ask questions about Project Mayhem',
+        project_completed: false,
       },
     ])
     })
